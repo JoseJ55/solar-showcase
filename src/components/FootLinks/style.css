@@ -1,0 +1,25 @@
+#footer-links {
+    width: fit-content;
+    color: black;
+    font-family: var(--font-family);
+    align-self: flex-start;
+    margin: 0 10vw;
+}
+
+#footer-links-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#footer-links-items p {
+    margin: 1vh 0;
+}
+
+#footer-links-items a {
+    color: black;
+    text-decoration: none;
+}
+
+#footer-links-items a:hover {
+    color: var(--main-text-color);
+}

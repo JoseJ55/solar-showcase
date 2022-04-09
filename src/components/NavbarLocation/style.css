@@ -1,0 +1,322 @@
+#navbarLocation {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+#space {
+    padding: 1vh 1vw;
+    background-color: blue;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg) translate(150px) rotate(-45deg);
+    -webkit-animation: orbit2 8s linear infinite;
+    -moz-animation: orbit2 8s linear infinite;
+    -o-animation: orbit2 8s linear infinite;
+    animation: orbit2 8s linear infinite;
+}
+
+#sun {
+    /* background-color: red; */
+    background-image: url("/public/images/sun.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+}
+
+#mercury {
+    /* background-color: orange; */
+    background-image: url("/public/images/mercury.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(0deg) translate(50px) rotate(0deg);
+    -webkit-animation: orbit1 8s linear infinite;
+}
+
+#venus {
+    /* background-color: green; */
+    background-image: url("/public/images/venus.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(45deg) translate(100px) rotate(-45deg);
+    -webkit-animation: orbit2 16s linear infinite;
+}
+
+#earth {
+    /* background-color: blue; */
+    background-image: url("/public/images/earth.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(45deg) translate(150px) rotate(-45deg);
+    -webkit-animation: orbit3 24s linear infinite;
+}
+
+#mars {
+    /* background-color: red; */
+    background-image: url("/public/images/mars.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(45deg) translate(200px) rotate(-45deg);
+    -webkit-animation: orbit4 32s linear infinite;
+}
+
+#jupiter {
+    /* background-color: lightcoral; */
+    background-image: url("/public/images/jupitur.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(45deg) translate(250px) rotate(-45deg);
+    -webkit-animation: orbit5 40s linear infinite;
+}
+
+#saturn {
+    /* background-color: palegoldenrod; */
+    background-image: url("/public/images/saturn.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(45deg) translate(300px) rotate(-45deg);
+    -webkit-animation: orbit6 48s linear infinite;
+}
+
+#neptune {
+    /* background-color: aquamarine; */
+    background-image: url("/public/images/neptune.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(45deg) translate(350px) rotate(-45deg);
+    -webkit-animation: orbit7 56s linear infinite;
+}
+
+#uranus {
+    /* background-color: aqua; */
+    background-image: url("/public/images/uranus.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* padding: 1vh 1vw; */
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: rotate(45deg) translate(400px) rotate(-45deg);
+    -webkit-animation: orbit8 64s linear infinite;
+}
+
+/* --------------------- Mecury ------------------------- */
+@-webkit-keyframes orbit1 {
+    from { -webkit-transform: rotate(0deg) translateX(50px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(50px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit1 {
+    from { -webkit-transform: rotate(0deg) translateX(50px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(50px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit1 {
+    from { -webkit-transform: rotate(0deg) translateX(50px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(50px) rotate(-360deg);}
+}
+
+@keyframes orbit1 {
+    from { -webkit-transform: rotate(0deg) translateX(50px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(50px) rotate(-360deg);}
+}
+
+/* ---------------------------- Venus ----------------------------- */
+@-webkit-keyframes orbit2 {
+    from { -webkit-transform: rotate(0deg) translateX(100px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(100px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit2 {
+    from { -webkit-transform: rotate(0deg) translateX(100px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(100px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit2 {
+    from { -webkit-transform: rotate(0deg) translateX(100px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(100px) rotate(-360deg);}
+}
+
+@keyframes orbit2 {
+    from { -webkit-transform: rotate(0deg) translateX(100px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(100px) rotate(-360deg);}
+}
+
+/* ----------------------------- earth ---------------------------- */
+@-webkit-keyframes orbit3 {
+    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit3 {
+    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit3 {
+    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg);}
+}
+
+@keyframes orbit3 {
+    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg);}
+}
+
+/* ---------------------------------- Mars ---------------------------- */
+@-webkit-keyframes orbit4 {
+    from { -webkit-transform: rotate(0deg) translateX(200px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(200px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit4 {
+    from { -webkit-transform: rotate(0deg) translateX(200px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(200px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit4 {
+    from { -webkit-transform: rotate(0deg) translateX(200px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(200px) rotate(-360deg);}
+}
+
+@keyframes orbit4 {
+    from { -webkit-transform: rotate(0deg) translateX(200px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(200px) rotate(-360deg);}
+}
+
+/* ------------------------------- Jupiter ----------------------- */
+@-webkit-keyframes orbit5 {
+    from { -webkit-transform: rotate(0deg) translateX(250px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(250px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit5 {
+    from { -webkit-transform: rotate(0deg) translateX(250px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(250px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit5 {
+    from { -webkit-transform: rotate(0deg) translateX(250px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(250px) rotate(-360deg);}
+}
+
+@keyframes orbit5 {
+    from { -webkit-transform: rotate(0deg) translateX(250px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(250px) rotate(-360deg);}
+}
+
+/* ------------------------------- Saturn --------------------------- */
+@-webkit-keyframes orbit6 {
+    from { -webkit-transform: rotate(0deg) translateX(300px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(300px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit6 {
+    from { -webkit-transform: rotate(0deg) translateX(300px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(300px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit6 {
+    from { -webkit-transform: rotate(0deg) translateX(300px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(300px) rotate(-360deg);}
+}
+
+@keyframes orbit6 {
+    from { -webkit-transform: rotate(0deg) translateX(300px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(300px) rotate(-360deg);}
+}
+
+/* ------------------------- Neptune -------------------------------- */
+@-webkit-keyframes orbit7 {
+    from { -webkit-transform: rotate(0deg) translateX(350px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(350px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit7 {
+    from { -webkit-transform: rotate(0deg) translateX(350px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(350px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit7 {
+    from { -webkit-transform: rotate(0deg) translateX(350px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(350px) rotate(-360deg);}
+}
+
+@keyframes orbit7 {
+    from { -webkit-transform: rotate(0deg) translateX(350px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(350px) rotate(-360deg);}
+}
+
+/* ---------------------------- Uranus ----------------------------- */
+@-webkit-keyframes orbit8 {
+    from { -webkit-transform: rotate(0deg) translateX(400px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(400px) rotate(-360deg);}
+}
+
+@-moz-keyframes orbit8 {
+    from { -webkit-transform: rotate(0deg) translateX(400px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(400px) rotate(-360deg);}
+}
+
+@-o-keyframes orbit8 {
+    from { -webkit-transform: rotate(0deg) translateX(400px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(400px) rotate(-360deg);}
+}
+
+@keyframes orbit8 {
+    from { -webkit-transform: rotate(0deg) translateX(400px) rotate(0deg);}
+    to { -webkit-transform: rotate(360deg) translateX(400px) rotate(-360deg);}
+}

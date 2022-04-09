@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --main-background: rgb(0, 0, 0);
+    --main-text-color: rgb(131, 229, 253);
+    --footer-color: white;
+}
+
+#app {
+    color: var(--main-text-color);
+    background: var(--main-background);
+    /* width: 100vw;
+    height: 100vh; */
+}

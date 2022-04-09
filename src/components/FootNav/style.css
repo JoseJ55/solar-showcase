@@ -1,0 +1,26 @@
+#footer-nav {
+    width: fit-content;
+    height: 100%;
+    color: black;
+    font-family: var(--font-family);
+    align-self: flex-start;
+    margin: 0 10vh;
+}
+
+#footer-nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#footer-nav-list p {
+    margin: 1vh 0;
+}
+
+#footer-nav-list a {
+    color: black;
+    text-decoration: none;
+}
+
+#footer-nav-list a:hover {
+    color: var(--main-text-color)
+}
