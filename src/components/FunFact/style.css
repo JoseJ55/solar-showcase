@@ -1,0 +1,43 @@
+.funfact-fade-in {
+    opacity: 0;
+    transform: translateY(20vh);
+    visibility: hidden;
+    transition: opacity 1600ms ease-out, transform 600ms ease-out, visibility 1600ms ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+.funfact-fade-in.celestialBody-fade-in-visiable {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+.funfact-info {
+    width: 100%;
+    padding: 30vh 0;
+    margin: 40vh 0;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.funfact-info-body {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.funfact-info-body-fact {
+    width: 100%;
+    padding: 0 5vw;
+}
+
+.funfact-info-body-fact h3 {
+    padding: 5vh 0;
+}
+
+.funfact-info-p {
+    font-size: 1rem;
+}

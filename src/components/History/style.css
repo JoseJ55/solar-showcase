@@ -1,0 +1,24 @@
+.celestialBody-history {
+    width: 80%;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 30vh 0;
+}
+
+.celestialBody-history p {
+    margin: 5vh 0;
+}
+
+.celestialBody-fade-in {
+    opacity: 0;
+    transform: translateY(20vh);
+    visibility: hidden;
+    transition: opacity 2000ms ease-out, transform 800ms ease-out, visibility 2000ms ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+.celestialBody-fade-in.celestialBody-fade-in-visiable {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}

@@ -25,7 +25,6 @@ function Navbar() {
                         value="Close" />
                 </div>
                 <div id="navbarOpen-body">
-                    {/* <div>h</div> */}
                     <NavbarLocation />
                 </div>
             </div>
