@@ -5,7 +5,7 @@ function Header() {
   return (
     <div id="header">
         <div id="header-title">
-            Expolre the World
+            Explore Our System
         </div>
     </div>
   )

@@ -2,23 +2,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import "./style.css";
 
 function FunFact({ data }) {
-    const [isVisible, setIsVisible] = useState(true);
-    const domRef = useRef();
+    // const [isVisible, setIsVisible] = useState(true);
+    // const domRef = useRef();
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(enties => {
-            enties.forEach(entry => {
-                setIsVisible(entry.isIntersecting)}
-                )
-        })
-        observer.observe(domRef.current)
-        return () => observer.unobserve(domRef.current);
-    }, [])
+    // useEffect(() => {
+    //     const observer = new IntersectionObserver(enties => {
+    //         enties.forEach(entry => {
+    //             setIsVisible(entry.isIntersecting)}
+    //             )
+    //     })
+    //     observer.observe(domRef.current)
+    //     return () => observer.unobserve(domRef.current);
+    // }, [])
 
   return (
     <div 
-        className={`funfact-info funFact-fade-in ${isVisible ? "funfact-fade-in-visiable" : ""}`} 
-        ref={domRef}
+
+        // className={`funfact-info funFact-fade-in ${isVisible ? "funfact-fade-in-visiable" : ""}`} 
+        className="funfact-info"
+        // ref={domRef}
     >
         {data?.gifs ? 
             <div className='funfact-info-body'>

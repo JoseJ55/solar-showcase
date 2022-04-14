@@ -6,6 +6,7 @@ import { BsFacebook } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
 
 function FootContact() {
+  // This links are just for show they are here just to show hwo things look.
   return (
     <div id="footer-contact">
         <h3>Contact</h3>
