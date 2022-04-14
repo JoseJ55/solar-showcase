@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Solar System Showcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+A small website showing all the planets in the our solar system and other
+entites that are within our system. Using react to make component and diffrent
+pages with react hooks. The home page show what the website is and why it was made for, while
+all the other pages give information on the planet a user has click on for
+example earth. Each page gives a small fact and a small summary of the planet or
+information on the planet. The information is currently mainly form
+https://en.wikipedia.org/wiki/Main_Page. There is a small bit of information from
+https://www.nasa.gov/ and news articles from the google news api.
 
-## Available Scripts
+ ## Summary
+ The website mainly utilizes react hooks to build and manage the data in the
+ website. It also uses google new api to get article everytime a user reloads
+ the page so a user will always news on space and anything space related.
 
-In the project directory, you can run:
+ ## Images
+ ![Home](https://github.com/JoseJ55/solar-showcase/blob/main/public/images/solarShowcaseMain.png?raw=true)
 
-### `npm start`
+  ![Nav](https://github.com/JoseJ55/solar-showcase/blob/main/public/images/solarShowcaseNav.png?raw=true)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  ## Links
+  https://solarsystem-9ca07.web.app/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  https://github.com/JoseJ55/solar-showcase
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  https://newsapi.org/s/google-news-api
