@@ -21,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 30vh 0;
 }
 #about-section-title {
     flex: 4;

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
@@ -8,19 +8,6 @@ import History from '../components/History/History';
 
 function CelestialBody({ data, offset }) {
     let navigate = useNavigate();
-
-    // const [isVisible, setIsVisible] = useState(true);
-    // const domRef = useRef();
-
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(enties => {
-    //         enties.forEach(entry => {
-    //             setIsVisible(entry.isIntersecting)}
-    //             )
-    //     })
-    //     observer.observe(domRef.current)
-    //     return () => observer.unobserve(domRef.current);
-    // }, [])
 
   return (
     <div className='celestialBody'>
