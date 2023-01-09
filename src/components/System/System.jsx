@@ -1,11 +1,10 @@
 import React from 'react';
-// import "./style.css";
+import "./style.css";
 
-function NavbarLocation() {
+function System() {
   return (
-    <div id="navbarLocation">
-        {/* NavbarLocation */}
-        {/* <a href='/sun'>
+    <div id="system">
+        <a href='/sun'>
             <div id="sun"></div>
         </a>
         <a href="/mercury">
@@ -31,10 +30,10 @@ function NavbarLocation() {
         </a>
         <a href='/uranus'>
             <div id="uranus"></div>
-        </a> */}
+        </a>
         {/* <div id="space"></div> */}
     </div>
   )
 }
 
-export default NavbarLocation
+export default System
