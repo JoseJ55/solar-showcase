@@ -46,6 +46,9 @@
     position: absolute;
     transform: rotate(0deg) translate(50px) rotate(0deg);
     -webkit-animation: orbit1 8s linear infinite;
+    -moz-animation: orbit1 8s linear infinite;
+    -o-animation: orbit1 8s linear infinite;
+    animation: orbit1 8s linear infinite;
 }
 
 #venus {
@@ -61,6 +64,9 @@
     position: absolute;
     transform: rotate(45deg) translate(100px) rotate(-45deg);
     -webkit-animation: orbit2 16s linear infinite;
+    -moz-animation: orbit2 16s linear infinite;
+    -o-animation: orbit2 16s linear infinite;
+    animation: orbit2 16s linear infinite;
 }
 
 #earth {
@@ -76,6 +82,9 @@
     position: absolute;
     transform: rotate(45deg) translate(150px) rotate(-45deg);
     -webkit-animation: orbit3 24s linear infinite;
+    -moz-animation: orbit3 24s linear infinite;
+    -o-animation: orbit3 24s linear infinite;
+    animation: orbit3 24s linear infinite;
 }
 
 #mars {
@@ -91,6 +100,9 @@
     position: absolute;
     transform: rotate(45deg) translate(200px) rotate(-45deg);
     -webkit-animation: orbit4 32s linear infinite;
+    -moz-animation: orbit4 32s linear infinite;
+    -o-animation: orbit4 32s linear infinite;
+    animation: orbit4 32s linear infinite;
 }
 
 #jupiter {
@@ -106,6 +118,9 @@
     position: absolute;
     transform: rotate(45deg) translate(250px) rotate(-45deg);
     -webkit-animation: orbit5 40s linear infinite;
+    -moz-animation: orbit5 40s linear infinite;
+    -o-animation: orbit5 40s linear infinite;
+    animation: orbit5 40s linear infinite;
 }
 
 #saturn {
@@ -121,6 +136,9 @@
     position: absolute;
     transform: rotate(45deg) translate(300px) rotate(-45deg);
     -webkit-animation: orbit6 48s linear infinite;
+    -moz-animation: orbit6 48s linear infinite;
+    -o-animation: orbit6 48s linear infinite;
+    animation: orbit6 48s linear infinite;
 }
 
 #neptune {
@@ -136,6 +154,9 @@
     position: absolute;
     transform: rotate(45deg) translate(350px) rotate(-45deg);
     -webkit-animation: orbit7 56s linear infinite;
+    -moz-animation: orbit7 56s linear infinite;
+    -o-animation: orbit7 56s linear infinite;
+    animation: orbit7 56s linear infinite;
 }
 
 #uranus {
@@ -151,6 +172,9 @@
     position: absolute;
     transform: rotate(45deg) translate(400px) rotate(-45deg);
     -webkit-animation: orbit8 64s linear infinite;
+    -moz-animation: orbit8 64s linear infinite;
+    -o-animation: orbit8 64s linear infinite;
+    animation: orbit8 64s linear infinite;
 }
 
 /* --------------------- Mecury ------------------------- */
