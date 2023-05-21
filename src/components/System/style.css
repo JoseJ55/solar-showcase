@@ -166,7 +166,7 @@
     animation: orbit8 64s linear infinite;
 }
 
-/* --------------------- Mecury ------------------------- */
+/* --------------------- Mercury ------------------------- */
 @-webkit-keyframes orbit1 {
     /* 50px */
     from { -webkit-transform: rotate(0deg) translateX(4vw) rotate(0deg);}

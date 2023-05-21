@@ -33,7 +33,7 @@ function App() {
 
     <Router>
       <Routes>
-        {/* {bodies.map((body, key) => (
+        {bodies.map((body, key) => (
           <Route 
             key={key}
             exact path={`/${body.name.toLowerCase()}`}
@@ -42,7 +42,7 @@ function App() {
                 <CelestialBody data={body} offset={offsetY} />
               </div>
             } />
-        ))} */}
+        ))}
 
         {/* <Route exact path="/sun" element={<div>Sun</div>} />
         <Route exact path="/mercury" element={<div>mercury</div>} />

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./style.css";
 
 function About() {
+    useEffect(() => {
+        
+    }, [])
+
   return (
     <div id="about">
         <div id="about-section">
