@@ -1,16 +1,16 @@
 #header {
-    background-image: url("/public/images/teahub.io-space-background-wallpaper.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: black;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 
 #header-title {
     font-family: var(--font-family);
     font-size: 3rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }

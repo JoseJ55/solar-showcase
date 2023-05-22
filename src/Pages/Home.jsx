@@ -12,6 +12,7 @@ function Home() {
   return (
     <div id="home">
         {/* <Navbar /> */}
+
         <Header />
         <About />
         <System />
