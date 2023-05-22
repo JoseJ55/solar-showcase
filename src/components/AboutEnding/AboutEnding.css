@@ -1,0 +1,49 @@
+#about-section-other {
+    width: 100%;
+    height: 60vh;
+    margin: 15vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-section-other p {
+    flex: 1;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transform: translate(-100%);
+    animation: fade-in-left 3s forwards;
+}
+
+#about-section-other-image {
+    flex: 1;
+    height: 100%;
+    margin-left: 10vw;
+    background-image: url("/public/images/41-412932_comet-clipart-galaxy-comet-png.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translate(100%);
+    animation: fade-in-right 3s forwards;
+}
+
+@keyframes fade-in-left {
+    0% { 
+        transform: translateX(-100%); 
+        opacity: 0;
+    }
+    100% { 
+        transform: translateX(0%); 
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-right {
+    0% { 
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    100% { 
+        transform: translateX(0%); 
+        opacity: 1;
+    }
+}
