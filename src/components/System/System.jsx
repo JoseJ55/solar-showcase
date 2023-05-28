@@ -1,10 +1,13 @@
 import React from 'react';
 import "./style.css";
 
+import Canvas from '../ThreeComponent/Nav/Canvas';
+
 function System() {
   return (
     <div id="system">
-        <a href='/sun'>
+        <Canvas />
+        {/* <a href='/sun'>
             <div id="sun"></div>
         </a>
         <a href="/mercury">
@@ -30,7 +33,7 @@ function System() {
         </a>
         <a href='/uranus'>
             <div id="uranus"></div>
-        </a>
+        </a> */}
         {/* <div id="space"></div> */}
     </div>
   )
