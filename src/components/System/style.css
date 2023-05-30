@@ -7,10 +7,11 @@
     align-items: center;
     margin: auto;
     z-index: 100;
-    background-image: url('/public/images/jeremy-perkins-FsK54FVNRfM-unsplash.jpg');
+    /* background-image: url('/public/images/jeremy-perkins-FsK54FVNRfM-unsplash.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    overflow: hidden;
 }
 
 #space {

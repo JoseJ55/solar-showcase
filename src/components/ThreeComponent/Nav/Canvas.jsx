@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { useNavigate } from 'react-router-dom';
 
 function Canvas() {
     const mountRef = useRef(null);
     const canvasRef = useRef(null);
+    const navigate = useNavigate();
 
     function rotateAboutPoint(obj, point, axis, theta, pointIsWorld){
         pointIsWorld = (pointIsWorld === undefined)? false : pointIsWorld;
@@ -44,6 +46,17 @@ function Canvas() {
         camera.position.z = 49;
 
         camera.lookAt(0, 0, 0);
+
+        function onWindowResize() {
+            camera.aspect = current.clientWidth / current.clientHeight;
+            camera.updateProjectionMatrix();
+          
+            renderer.setSize(current.clientWidth, current.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.render(scene, camera)
+        }
+
+        window.addEventListener('resize', onWindowResize);
 
         const renderer = new THREE.WebGLRenderer({
             canvas: canvasRef.current,
@@ -104,6 +117,7 @@ function Canvas() {
         mercuryMesh.position.set(5, 0, 0);
 
         const mercuryOrbit = createOrbitCircle(5, 64, orbitColor);
+        // mercuryOrbit.name = 'mercury_orbit';
         scene.add(mercuryOrbit);
 
         // This is for venus model.
@@ -116,103 +130,87 @@ function Canvas() {
         venusMesh.position.set(10, 0, 0);
 
         const venusOrbit = createOrbitCircle(10, 64, orbitColor);
+        // venusOrbit.name = 'venus_orbit';
         scene.add(venusOrbit);
 
         // This is for earth model.
         const earthGeometry = new THREE.SphereGeometry(1.5, 13, 18);
         const earthUV = new THREE.TextureLoader().load('UVMaps/earth-uv-map.jpg');
-        const earthMaterial = new THREE.MeshStandardMaterial({
-            map: earthUV,
-        });
+        const earthMaterial = new THREE.MeshStandardMaterial({ map: earthUV });
         const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
         earthMesh.name = 'earth';
         scene.add(earthMesh);
         earthMesh.position.set(15, 0, 0);
 
         const earthOrbit = createOrbitCircle(15, 64, orbitColor);
+        // earthOrbit.name = 'earth_orbit';
         scene.add(earthOrbit);
 
         // This is for mars model.
         const marsGeometry = new THREE.SphereGeometry(1.5, 13, 18);
         const marsUV = new THREE.TextureLoader().load('UVMaps/mars-uv-map.jpg');
-        const marsMaterial = new THREE.MeshStandardMaterial({
-            map: marsUV,
-        });
+        const marsMaterial = new THREE.MeshStandardMaterial({ map: marsUV });
         const marsMesh = new THREE.Mesh(marsGeometry, marsMaterial);
         marsMesh.name = 'mars';
         scene.add(marsMesh);
         marsMesh.position.set(20, 0, 0);
 
         const marsOrbit = createOrbitCircle(20, 64, orbitColor);
+        // marsOrbit.name = 'mars_orbit';
         scene.add(marsOrbit);
 
         // This is for jupiter model.
         const jupiterGeometry = new THREE.SphereGeometry(1.5, 13, 18);
         const jupiterUV = new THREE.TextureLoader().load('UVMaps/jupiter-uv-map.jpg');
-        const jupiterMaterial = new THREE.MeshStandardMaterial({
-            map: jupiterUV,
-        });
+        const jupiterMaterial = new THREE.MeshStandardMaterial({ map: jupiterUV });
         const jupiterMesh = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
         jupiterMesh.name = 'jupiter';
         scene.add(jupiterMesh);
         jupiterMesh.position.set(25, 0, 0);
 
         const jupiterOrbit = createOrbitCircle(25, 64, orbitColor);
+        // jupiterOrbit.name = 'jupiter_orbit';
         scene.add(jupiterOrbit);
 
         // This is for saturn model.
         const saturnGeometry = new THREE.SphereGeometry(1.5, 13, 18);
         const saturnUV = new THREE.TextureLoader().load('UVMaps/saturn-uv-map.jpg');
-        const saturnMaterial = new THREE.MeshStandardMaterial({
-            map: saturnUV,
-        });
+        const saturnMaterial = new THREE.MeshStandardMaterial({ map: saturnUV });
         const saturnMesh = new THREE.Mesh(saturnGeometry, saturnMaterial);
         saturnMesh.name = 'saturn';
         scene.add(saturnMesh);
         saturnMesh.position.set(30, 0, 0);
 
         const saturnOrbit = createOrbitCircle(30, 64, orbitColor);
+        // saturnOrbit.name = 'saturn_orbit';
         scene.add(saturnOrbit);
         
         // This is for uranus model.
         const uranusGeometry = new THREE.SphereGeometry(1.5, 13, 18);
         const uranusUV = new THREE.TextureLoader().load('UVMaps/uranus-uv-map.jpg');
-        const uranusMaterial = new THREE.MeshStandardMaterial({
-            map: uranusUV,
-        });
+        const uranusMaterial = new THREE.MeshStandardMaterial({ map: uranusUV });
         const uranusMesh = new THREE.Mesh(uranusGeometry, uranusMaterial);
         uranusMesh.name = 'uranus';
         scene.add(uranusMesh);
         uranusMesh.position.set(35, 0, 0);
 
         const uranusOrbit = createOrbitCircle(35, 64, orbitColor);
+        // uranusOrbit.name = 'uranus_orbit';
         scene.add(uranusOrbit);
 
         // This is for neptune model.
         const neptuneGeometry = new THREE.SphereGeometry(1.5, 13, 18);
         const neptuneUV = new THREE.TextureLoader().load('UVMaps/neptune-uv-map.jpg');
-        const neptuneMaterial = new THREE.MeshStandardMaterial({
-            map: neptuneUV,
-        });
+        const neptuneMaterial = new THREE.MeshStandardMaterial({ map: neptuneUV });
         const neptuneMesh = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
         neptuneMesh.name = 'neptune';
         scene.add(neptuneMesh);
         neptuneMesh.position.set(40, 0, 0);
 
         const neptuneOrbit = createOrbitCircle(40, 64, orbitColor);
+        // neptuneOrbit.name = 'neptune_orbit';
         scene.add(neptuneOrbit);
 
-        // var orbitingObjects = [mercuryMesh];
-        // var pivot = new THREE.Object3D();
-        // pivot.position.set(0, 0, 0);
-        // pivot.rotation.set(0, 0, 0);
-
-        // for(var i = 0; i < orbitingObjects.length; i++) {
-        //     pivot.attach(orbitingObjects[i]);
-        // }
-
-        // pivot.rotation.x = Math.PI / 2;
-        // scene.add(mercuryMesh);
         rotateAboutPoint(mercuryMesh, new THREE.Vector3(0, 0, 0), new THREE.Vector3(1, 0, 0), THREE.MathUtils.degToRad(30), true);
         
         // Here is code for interacting with objects on the canvas.
@@ -237,31 +235,31 @@ function Canvas() {
 
                 switch (selectedObject.name) {
                     case 'sun': 
-                        console.log('Interacted with the sun object');
+                        navigate('/sun');
                         break;
                     case 'mercury': 
-                        console.log('Interacted with the mercury object');
+                        navigate('/mercury');
                         break;
                     case 'venus': 
-                        console.log('Interacted with the venus object');
+                        navigate('/venus');
                         break;
                     case 'earth': 
-                        console.log('Interacted with the earth object');
+                        navigate('/earth');
                         break;
                     case 'mars': 
-                        console.log('Interacted with the mars object');
+                        navigate('/mars');
                         break;
                     case 'jupiter': 
-                        console.log('Interacted with the jupiter object');
+                        navigate('/jupiter');
                         break;
                     case 'saturn': 
-                        console.log('Interacted with the saturn object');
+                        navigate('/saturn');
                         break;
                     case 'uranus': 
-                        console.log('Interacted with the uranus object');
+                        navigate('/uranus');
                         break;
                     case 'neptune': 
-                        console.log('Interacted with the neptune object');
+                        navigate('/neptune');
                         break;
                     default:
                         break;
@@ -269,7 +267,73 @@ function Canvas() {
             }
         }
 
-        renderer.domElement.addEventListener('click', onclick, true)
+        renderer.domElement.addEventListener('click', onclick, true);
+
+        let mercurySpeed = 4;
+        let venusSpeed = 2;
+        let earthSpeed = 1;
+        let marsSpeed = 0.5;
+        let jupiterSpeed = (1/12);
+        let saturnSpeed = (1/29);
+        let uranusSpeed = (1/84);
+        let neptuneSpeed = (1/165);
+
+        // const onPointerMove = (e) => {
+        //     e.preventDefault();
+
+        //     const canvasBounds = renderer.domElement.getBoundingClientRect();
+
+        //     mouse.x = ((e.clientX - canvasBounds.left) / canvasBounds.width) * 2 - 1;
+        //     mouse.y = -((e.clientY - canvasBounds.top) / canvasBounds.height) * 2 + 1;
+            
+        //     raycaster.setFromCamera(mouse, camera);
+
+        //     let intersects = raycaster.intersectObjects(scene.children);
+
+        //     if (intersects.length > 0) {
+        //         const object =  intersects[0].object;
+        //         let oldSpeed;
+
+        //         if (object.name.length > 0 && object !== undefined) {
+        //             console.log(object.position);
+
+        //             switch (object.name) {
+        //                 case 'mercury': 
+        //                     oldSpeed = 4;
+        //                     mercurySpeed = 0.5;
+        //                     // console.log('Interacted with the mercury object');
+        //                     break;
+        //                 case 'venus': 
+        //                     console.log('Interacted with the venus object');
+        //                     break;
+        //                 case 'earth': 
+        //                     console.log('Interacted with the earth object');
+        //                     break;
+        //                 case 'mars': 
+        //                     console.log('Interacted with the mars object');
+        //                     break;
+        //                 case 'jupiter': 
+        //                     console.log('Interacted with the jupiter object');
+        //                     break;
+        //                 case 'saturn': 
+        //                     console.log('Interacted with the saturn object');
+        //                     break;
+        //                 case 'uranus': 
+        //                     console.log('Interacted with the uranus object');
+        //                     break;
+        //                 case 'neptune': 
+        //                     console.log('Interacted with the neptune object');
+        //                     break;
+        //                 default:
+        //                     break;
+        //             }
+        //         } else {
+
+        //         }
+        //     }
+        // }
+
+        // renderer.domElement.addEventListener('pointermove', onPointerMove, true);
 
         var t = 0;
         const animate = () => {
@@ -279,43 +343,43 @@ function Canvas() {
 
             mercuryMesh.rotation.x = -Math.PI / 2;
             mercuryMesh.rotation.y += -0.005;
-            mercuryMesh.position.x = 5*Math.cos(t * 4);
-            mercuryMesh.position.y = 5*Math.sin(t * 4);
+            mercuryMesh.position.x = 5*Math.cos(t * mercurySpeed);
+            mercuryMesh.position.y = 5*Math.sin(t * mercurySpeed);
 
             venusMesh.rotation.x = -Math.PI / 2;
             venusMesh.rotation.y += -0.005;
-            venusMesh.position.x = 10*Math.cos(t * 2);
-            venusMesh.position.y = 10*Math.sin(t * 2);
+            venusMesh.position.x = 10*Math.cos(t * venusSpeed);
+            venusMesh.position.y = 10*Math.sin(t * venusSpeed);
 
             earthMesh.rotation.x = -Math.PI / 2;
             earthMesh.rotation.y += -0.005;
-            earthMesh.position.x = 15*Math.cos(t);
-            earthMesh.position.y = 15*Math.sin(t);
+            earthMesh.position.x = 15*Math.cos(t * earthSpeed);
+            earthMesh.position.y = 15*Math.sin(t * earthSpeed);
 
             marsMesh.rotation.x = -Math.PI / 2;
             marsMesh.rotation.y += -0.005;
-            marsMesh.position.x = 20*Math.cos(t * 0.5);
-            marsMesh.position.y = 20*Math.sin(t * 0.5);
+            marsMesh.position.x = 20*Math.cos(t * marsSpeed);
+            marsMesh.position.y = 20*Math.sin(t * marsSpeed);
 
             jupiterMesh.rotation.x = -Math.PI / 2;
             jupiterMesh.rotation.y += -0.005;
-            jupiterMesh.position.x = 25*Math.cos(t * (1/12));
-            jupiterMesh.position.y = 25*Math.sin(t * (1/12));
+            jupiterMesh.position.x = 25*Math.cos(t * jupiterSpeed);
+            jupiterMesh.position.y = 25*Math.sin(t * jupiterSpeed);
 
             saturnMesh.rotation.x = -Math.PI / 2;
             saturnMesh.rotation.y += -0.005;
-            saturnMesh.position.x = 30*Math.cos(t * (1/29));
-            saturnMesh.position.y = 30*Math.sin(t * (1/29));
+            saturnMesh.position.x = 30*Math.cos(t * saturnSpeed);
+            saturnMesh.position.y = 30*Math.sin(t * saturnSpeed);
 
             uranusMesh.rotation.x = -Math.PI / 2;
             uranusMesh.rotation.y += -0.005;
-            uranusMesh.position.x = 35*Math.cos(t * (1/84));
-            uranusMesh.position.y = 35*Math.sin(t * (1/84));
+            uranusMesh.position.x = 35*Math.cos(t * uranusSpeed);
+            uranusMesh.position.y = 35*Math.sin(t * uranusSpeed);
 
             neptuneMesh.rotation.x = -Math.PI / 2;
             neptuneMesh.rotation.y += -0.005;
-            neptuneMesh.position.x = 40*Math.cos(t * (1/165));
-            neptuneMesh.position.y = 40*Math.sin(t * (1/165));
+            neptuneMesh.position.x = 40*Math.cos(t * neptuneSpeed);
+            neptuneMesh.position.y = 40*Math.sin(t * neptuneSpeed);
 
             renderer.render(scene, camera);
             window.requestAnimationFrame(animate);
