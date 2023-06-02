@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from 'three';
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,9 @@ function Canvas() {
     const mountRef = useRef(null);
     const canvasRef = useRef(null);
     const navigate = useNavigate();
+
+    const [hovering, setHovering] = useState(false);
+    const [lastItem, setLastItem] = useState(null);
 
     function rotateAboutPoint(obj, point, axis, theta, pointIsWorld){
         pointIsWorld = (pointIsWorld === undefined)? false : pointIsWorld;
@@ -269,71 +272,97 @@ function Canvas() {
 
         renderer.domElement.addEventListener('click', onclick, true);
 
-        let mercurySpeed = 4;
-        let venusSpeed = 2;
+        let mercurySpeed = 1.3;
+        let venusSpeed = 1.1;
         let earthSpeed = 1;
         let marsSpeed = 0.5;
-        let jupiterSpeed = (1/12);
-        let saturnSpeed = (1/29);
-        let uranusSpeed = (1/84);
-        let neptuneSpeed = (1/165);
+        let jupiterSpeed = (1/6);
+        let saturnSpeed = (1/15);
+        let uranusSpeed = (1/42);
+        let neptuneSpeed = (1/82);
 
-        // const onPointerMove = (e) => {
-        //     e.preventDefault();
+        const onPointerMove = (e) => {
+            e.preventDefault();
 
-        //     const canvasBounds = renderer.domElement.getBoundingClientRect();
+            const canvasBounds = renderer.domElement.getBoundingClientRect();
 
-        //     mouse.x = ((e.clientX - canvasBounds.left) / canvasBounds.width) * 2 - 1;
-        //     mouse.y = -((e.clientY - canvasBounds.top) / canvasBounds.height) * 2 + 1;
+            mouse.x = ((e.clientX - canvasBounds.left) / canvasBounds.width) * 2 - 1;
+            mouse.y = -((e.clientY - canvasBounds.top) / canvasBounds.height) * 2 + 1;
             
-        //     raycaster.setFromCamera(mouse, camera);
+            raycaster.setFromCamera(mouse, camera);
 
-        //     let intersects = raycaster.intersectObjects(scene.children);
+            let intersects = raycaster.intersectObjects(scene.children);
 
-        //     if (intersects.length > 0) {
-        //         const object =  intersects[0].object;
-        //         let oldSpeed;
+            if (intersects.length > 0 && intersects[0].object.name.length > 0) {
+                setHovering(true);
+                
+                // const object =  intersects[0].object;
 
-        //         if (object.name.length > 0 && object !== undefined) {
-        //             console.log(object.position);
+                // switch (object.name) {
+                //     case 'mercury':
+                //         setLastItem(object.name);
+                //         mercurySpeed = 0.5;
+                //         break;
+                //     case 'venus': 
+                //         console.log('Interacted with the venus object');
+                //         break;
+                //     case 'earth': 
+                //         console.log('Interacted with the earth object');
+                //         break;
+                //     case 'mars': 
+                //         console.log('Interacted with the mars object');
+                //         break;
+                //     case 'jupiter': 
+                //         console.log('Interacted with the jupiter object');
+                //         break;
+                //     case 'saturn': 
+                //         console.log('Interacted with the saturn object');
+                //         break;
+                //     case 'uranus': 
+                //         console.log('Interacted with the uranus object');
+                //         break;
+                //     case 'neptune': 
+                //         console.log('Interacted with the neptune object');
+                //         break;
+                //     default:
+                //         break;
+                // }
+            } else {
+                setHovering(false);
 
-        //             switch (object.name) {
-        //                 case 'mercury': 
-        //                     oldSpeed = 4;
-        //                     mercurySpeed = 0.5;
-        //                     // console.log('Interacted with the mercury object');
-        //                     break;
-        //                 case 'venus': 
-        //                     console.log('Interacted with the venus object');
-        //                     break;
-        //                 case 'earth': 
-        //                     console.log('Interacted with the earth object');
-        //                     break;
-        //                 case 'mars': 
-        //                     console.log('Interacted with the mars object');
-        //                     break;
-        //                 case 'jupiter': 
-        //                     console.log('Interacted with the jupiter object');
-        //                     break;
-        //                 case 'saturn': 
-        //                     console.log('Interacted with the saturn object');
-        //                     break;
-        //                 case 'uranus': 
-        //                     console.log('Interacted with the uranus object');
-        //                     break;
-        //                 case 'neptune': 
-        //                     console.log('Interacted with the neptune object');
-        //                     break;
-        //                 default:
-        //                     break;
-        //             }
-        //         } else {
+            //     switch (lastItem) {
+            //         case 'mercury': 
+            //             mercurySpeed = 4;
+            //             setLastItem(null);
+            //             break;
+            //         case 'venus': 
+            //             console.log('Interacted with the venus object');
+            //             break;
+            //         case 'earth': 
+            //             console.log('Interacted with the earth object');
+            //             break;
+            //         case 'mars': 
+            //             console.log('Interacted with the mars object');
+            //             break;
+            //         case 'jupiter': 
+            //             console.log('Interacted with the jupiter object');
+            //             break;
+            //         case 'saturn': 
+            //             console.log('Interacted with the saturn object');
+            //             break;
+            //         case 'uranus': 
+            //             console.log('Interacted with the uranus object');
+            //             break;
+            //         case 'neptune': 
+            //             console.log('Interacted with the neptune object');
+            //             break;
+            //         default:
+            //             break;
+            //     }
+            }
+        }
 
-        //         }
-        //     }
-        // }
-
-        // renderer.domElement.addEventListener('pointermove', onPointerMove, true);
+        renderer.domElement.addEventListener('pointermove', onPointerMove, true);
 
         var t = 0;
         const animate = () => {
@@ -390,7 +419,7 @@ function Canvas() {
   return (
     <div 
         ref={mountRef} 
-        style={{width: '100%', minHeight: '100%'}}>
+        style={{width: '100%', minHeight: '100%', cursor: hovering ? 'pointer' : 'default'}}>
         <canvas ref={canvasRef} style={{width: '100%', minHeight: '100%'}} />
     </div>
   )

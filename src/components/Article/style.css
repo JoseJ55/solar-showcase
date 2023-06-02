@@ -1,7 +1,7 @@
 .news-section {
     width: 70%;
     margin: auto;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .news-section-contain {
@@ -16,7 +16,7 @@
     font-family: var(--font-family);
     font-size: 1rem;
     transform: translate(100%);
-    animation: fade-in-bottom 3s forwards;
+    animation: fade-in-bottom 2s forwards;
 }
 
 .news-section h2 {
