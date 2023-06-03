@@ -27,12 +27,12 @@ function Article({ article }) {
     <div className="news-section" ref={articleRef}>
       <div className="news-section-contain" style={{ display: isVisible ? 'flex' : 'none' }}>
         <h2>{article.title}</h2>
-        <h3>by. {article.author}</h3>
+        <h3>date. {article.pubDate}</h3>
         <div className='news-section-info'>
-            <div className='new-section-info-image' style={{backgroundImage: `url(${article.urlToImage})`}}></div>
+            <div className='new-section-info-image' style={{backgroundImage: `url(${article.image_url})`}}></div>
             <p>{article.description}</p>
         </div>
-        <p className='news-section-link'><a href={`${article.url}`}>View Full Article</a></p>
+        <p className='news-section-link'><a href={`${article.link}`}>View Full Article</a></p>
       </div>
     </div>
   )
