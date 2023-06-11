@@ -3,6 +3,9 @@ import React, { createContext, useState } from "react";
 export const BodyContext = createContext();
 
 export function BodyProvider({ children }) {
+    const [isFact, setIsFact] = useState(false);
+    const [isHistory, setIsHistory] = useState(false);
+
     const [bodies, setBodies] = useState([
         {
             name: "Sun",
@@ -124,7 +127,7 @@ export function BodyProvider({ children }) {
     ])
 
     return (
-        <BodyContext.Provider value={{bodies, setBodies}}>
+        <BodyContext.Provider value={{bodies, setBodies, isFact, setIsFact, isHistory, setIsHistory}}>
             {children}    
         </BodyContext.Provider>
     )

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
+import Canvas from '../components/ThreeComponent/Body/Canvas';
 
 import FunFact from '../components/FunFact/FunFact';
 import History from '../components/History/History';
@@ -14,14 +15,20 @@ function CelestialBody({ data, offset }) {
         <div className='celestialBody-back' onClick={() => navigate("/")}>
             <IoMdArrowBack className='celestialBody-back-icon' />
         </div>
+
+        <div className='celestialBody-background'>
+            <Canvas name={data.name} />
+        </div>
         
-        <div className='celestialBody-title'>
+        {/* <div className='celestialBody-title'>
             <h1>{data.name}</h1>
         </div>
 
         <div className='celestialBody-mainImage'>
             <img src={window.location.origin + data.images[0]} alt="plant/sun" className="celestialBody-mainImage-image" />
-        </div>
+        </div> */}
+
+        <div className='empty-space'></div>
 
         <FunFact data={data} />
         <History data={data} />

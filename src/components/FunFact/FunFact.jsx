@@ -1,37 +1,47 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import "./style.css";
+import { BodyContext } from '../../bodyContext';
 
 function FunFact({ data }) {
-    // const [isVisible, setIsVisible] = useState(true);
-    // const domRef = useRef();
+    const textRef = useRef();
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(enties => {
-    //         enties.forEach(entry => {
-    //             setIsVisible(entry.isIntersecting)}
-    //             )
-    //     })
-    //     observer.observe(domRef.current)
-    //     return () => observer.unobserve(domRef.current);
-    // }, [])
+    const [isVisible, setIsVisible] = useState(false);
+
+    const { setIsFact, setIsHistory, isHistory } = useContext(BodyContext);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          const { top, bottom } = textRef.current.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+    
+          if (top < windowHeight && bottom > 0 && !isHistory) {
+            setIsFact(true);
+            setIsHistory(false);
+            setIsVisible(true);
+          } else if (!(top < windowHeight && bottom > 0) || isHistory) {
+            setIsFact(false);
+            setIsVisible(false);
+          }
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, [])
 
   return (
     <div 
-
-        // className={`funfact-info funFact-fade-in ${isVisible ? "funfact-fade-in-visiable" : ""}`} 
+        ref={textRef} 
         className="funfact-info"
-        // ref={domRef}
     >
-        {data?.gifs ? 
-            <div className='funfact-info-body'>
-                <div className='funfact-info-body-fact'>
-                    <h3>Fun Fact</h3>
-                    <p>{data.funFact}</p>
-                </div>
-                <img src={window.location.origin + data.gifs[0]} alt="gif" />
-            </div>: 
-            <p className='funfact-info-p'>{data.funFact}</p>
-        }
+        <div className='funfact-info-body' >
+            <div className='funfact-info-body-fact' style={{ display: isVisible ? 'block' : 'none' }}>
+                <h3>Fun Fact</h3>
+                <p>{data.funFact}</p>
+            </div>
+        </div>
     </div>
   )
 }

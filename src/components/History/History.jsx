@@ -1,27 +1,42 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import "./style.css";
+import { BodyContext } from '../../bodyContext';
 
 function History({ data }) {
-    // const [isVisible, setIsVisible] = useState(true);
-    // const domRef = useRef();
+  const textRef = useRef();
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(enties => {
-    //         enties.forEach(entry => {
-    //             setIsVisible(entry.isIntersecting)}
-    //             )
-    //     })
-    //     observer.observe(domRef.current)
-    //     return () => observer.unobserve(domRef.current);
-    // }, [])
+  const [isVisible, setIsVisible] = useState(false);
+
+  const { setIsHistory, isFact, setIsFact } = useContext(BodyContext);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { top, bottom } = textRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (top < windowHeight && !isFact) {
+        setIsHistory(true);
+        setIsFact(false);
+        setIsVisible(true);
+      } else if (!(top < windowHeight) || isFact) {
+        setIsHistory(false);
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [])
 
   return (
-    <div className='celestialBody-history'>
+    <div ref={textRef} className='celestialBody-history'>
         {data.history.map((item, key) => (
             <p 
-                key={key} 
-                // className={`celestialBody-fade-in ${isVisible ? "celestialBody-fade-in-visiable" : ""}`} 
-                // ref={domRef}
+              key={key} 
+              style={{ display: isVisible ? 'block' : 'none' }}
             >{item}</p>
         ))}
     </div>

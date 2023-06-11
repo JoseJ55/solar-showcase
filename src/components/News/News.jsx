@@ -24,17 +24,6 @@ function News() {
       }
     }
     getData();
-
-    // b1ecafc71a4042b8b555038fe5f4f051
-    // axios.get("https://newsapi.org/v2/everything?q=space&apiKey=b1ecafc71a4042b8b555038fe5f4f051")
-    // .then((res) => {
-    //   setNewsData([
-    //     res.data.articles[0],
-    //     res.data.articles[1],
-    //     res.data.articles[2]
-    //   ])
-    // })
-    // .catch((err) => console.log(err.response.data))
   }, [])
 
   return (

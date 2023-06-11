@@ -1,12 +1,21 @@
 .celestialBody-history {
     width: 80%;
+    margin-top: 50vh;
     font-family: var(--font-family);
     font-size: 1rem;
     padding: 30vh 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: hidden;
 }
 
 .celestialBody-history p {
+    width: 50%;
     margin: 5vh 0;
+    transform: translate(-100%);
+    animation: fade-in-right 3s forwards;
 }
 
 .celestialBody-fade-in {
@@ -21,4 +30,15 @@
     opacity: 1;
     transform: none;
     visibility: visible;
+}
+
+@keyframes fade-in-right {
+    0% { 
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    100% { 
+        transform: translateX(0%); 
+        opacity: 1;
+    }
 }

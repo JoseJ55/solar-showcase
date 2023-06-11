@@ -14,24 +14,30 @@
 
 .funfact-info {
     width: 100%;
+    /* height: 100vh; */
     padding: 30vh 0;
-    margin: 40vh 0;
+    /* margin: 40vh 0; */
+    margin-bottom: 50vh;
     font-family: var(--font-family);
     font-size: 1rem;
     display: flex;
     justify-content: center;
+    background-color: transparent;
+    z-index: 1;
 }
 
 .funfact-info-body {
-    width: 70%;
+    width: 80%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .funfact-info-body-fact {
-    width: 100%;
+    width: 50%;
     padding: 0 5vw;
+    transform: translate(-100%);
+    animation: fade-in-left 3s forwards;
 }
 
 .funfact-info-body-fact h3 {
@@ -40,4 +46,15 @@
 
 .funfact-info-p {
     font-size: 1rem;
+}
+
+@keyframes fade-in-left {
+    0% { 
+        transform: translateX(-100%); 
+        opacity: 0;
+    }
+    100% { 
+        transform: translateX(0%); 
+        opacity: 1;
+    }
 }
