@@ -238,31 +238,31 @@ function Canvas() {
 
                 switch (selectedObject.name) {
                     case 'sun': 
-                        navigate('/sun');
+                        setTimeout(() => navigate('/sun'), 500);
                         break;
                     case 'mercury': 
-                        navigate('/mercury');
+                        setTimeout(() => navigate('/mercury'), 500);
                         break;
                     case 'venus': 
-                        navigate('/venus');
+                        setTimeout(() => navigate('/venus'), 500);
                         break;
                     case 'earth': 
-                        navigate('/earth');
+                        setTimeout(() => navigate('/earth'), 500);
                         break;
                     case 'mars': 
-                        navigate('/mars');
+                        setTimeout(() => navigate('/mars'), 500);
                         break;
                     case 'jupiter': 
-                        navigate('/jupiter');
+                        setTimeout(() => navigate('/jupiter'), 500);
                         break;
                     case 'saturn': 
-                        navigate('/saturn');
+                        setTimeout(() => navigate('/saturn'), 500);
                         break;
                     case 'uranus': 
-                        navigate('/uranus');
+                        setTimeout(() => navigate('/uranus'), 500);
                         break;
                     case 'neptune': 
-                        navigate('/neptune');
+                        setTimeout(() => navigate('/neptune'), 500);
                         break;
                     default:
                         break;
@@ -295,70 +295,8 @@ function Canvas() {
 
             if (intersects.length > 0 && intersects[0].object.name.length > 0) {
                 setHovering(true);
-                
-                // const object =  intersects[0].object;
-
-                // switch (object.name) {
-                //     case 'mercury':
-                //         setLastItem(object.name);
-                //         mercurySpeed = 0.5;
-                //         break;
-                //     case 'venus': 
-                //         console.log('Interacted with the venus object');
-                //         break;
-                //     case 'earth': 
-                //         console.log('Interacted with the earth object');
-                //         break;
-                //     case 'mars': 
-                //         console.log('Interacted with the mars object');
-                //         break;
-                //     case 'jupiter': 
-                //         console.log('Interacted with the jupiter object');
-                //         break;
-                //     case 'saturn': 
-                //         console.log('Interacted with the saturn object');
-                //         break;
-                //     case 'uranus': 
-                //         console.log('Interacted with the uranus object');
-                //         break;
-                //     case 'neptune': 
-                //         console.log('Interacted with the neptune object');
-                //         break;
-                //     default:
-                //         break;
-                // }
             } else {
                 setHovering(false);
-
-            //     switch (lastItem) {
-            //         case 'mercury': 
-            //             mercurySpeed = 4;
-            //             setLastItem(null);
-            //             break;
-            //         case 'venus': 
-            //             console.log('Interacted with the venus object');
-            //             break;
-            //         case 'earth': 
-            //             console.log('Interacted with the earth object');
-            //             break;
-            //         case 'mars': 
-            //             console.log('Interacted with the mars object');
-            //             break;
-            //         case 'jupiter': 
-            //             console.log('Interacted with the jupiter object');
-            //             break;
-            //         case 'saturn': 
-            //             console.log('Interacted with the saturn object');
-            //             break;
-            //         case 'uranus': 
-            //             console.log('Interacted with the uranus object');
-            //             break;
-            //         case 'neptune': 
-            //             console.log('Interacted with the neptune object');
-            //             break;
-            //         default:
-            //             break;
-            //     }
             }
         }
 

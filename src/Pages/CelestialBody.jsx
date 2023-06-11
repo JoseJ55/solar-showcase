@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
@@ -7,8 +7,12 @@ import Canvas from '../components/ThreeComponent/Body/Canvas';
 import FunFact from '../components/FunFact/FunFact';
 import History from '../components/History/History';
 
-function CelestialBody({ data, offset }) {
+function CelestialBody({ data }) {
     let navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
   return (
     <div className='celestialBody'>
@@ -19,14 +23,6 @@ function CelestialBody({ data, offset }) {
         <div className='celestialBody-background'>
             <Canvas name={data.name} />
         </div>
-        
-        {/* <div className='celestialBody-title'>
-            <h1>{data.name}</h1>
-        </div>
-
-        <div className='celestialBody-mainImage'>
-            <img src={window.location.origin + data.images[0]} alt="plant/sun" className="celestialBody-mainImage-image" />
-        </div> */}
 
         <div className='empty-space'></div>
 
