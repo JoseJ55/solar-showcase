@@ -7,6 +7,7 @@ function Canvas ({ name }) {
     const mountRef = useRef();
     const canvasRef = useRef();
     const meshRef = useRef();
+    const saturnRef = useRef();
     const isFactRef = useRef(false);
     const isHistoryRef = useRef(false);
 
@@ -54,8 +55,43 @@ function Canvas ({ name }) {
         const material = new THREE.MeshStandardMaterial({ map: UV });
         const Mesh = new THREE.Mesh(geometry, material);
         scene.add(Mesh);
+        Mesh.rotateY(0.1);
         Mesh.position.set(0, 0, 0)
         meshRef.current = Mesh;
+
+        if (name.toLowerCase() === 'saturn') {
+            const saturnRingGeometry = new THREE.RingGeometry(20, 30, 32);
+            const saturnRingUV = new THREE.TextureLoader().load('UVMaps/saturn-rings-uv-map.jpg');
+            // saturnRingGeometry.faceVertexUvs[0] = [];
+
+            // for (let i = 0; i < saturnRingGeometry.faces.length; i++) {
+            //     const face = saturnRingGeometry.faces[i];
+            //     const faceVertexUvs = [];
+
+            //     for (let j = 0; j < 3; j++) {
+            //         const vertexIndex = face[faceVertexUvs[j]];
+            //         const vertex = saturnRingGeometry.vertices[vertexIndex];
+
+            //         // Calculate the angle of the vertex
+            //         const angle = Math.atan2(vertex.y, vertex.x);
+            //         // Convert the angle to a normalized UV coordinate
+            //         const u = (angle + Math.PI) / (2 * Math.PI);
+            //         const v = (vertex.z - 20) / (30 - 20);
+
+            //         faceVertexUvs.push(new THREE.Vector2(u, v));
+            //     }
+
+            //     saturnRingGeometry.faceVertexUvs[0].push(faceVertexUvs);
+            // }
+
+            const saturnRingMaterial = new THREE.MeshStandardMaterial({ map: saturnRingUV });
+            const saturnRing = new THREE.Mesh(saturnRingGeometry, saturnRingMaterial);
+            scene.add(saturnRing);
+            saturnRing.rotateX(-1);
+            saturnRing.rotateY(-0.6);
+            saturnRing.position.set(0, 0, 0);
+            saturnRef.current = saturnRing;
+        }
 
         const animate = () => {
             Mesh.rotation.y += 0.005;
@@ -64,17 +100,32 @@ function Canvas ({ name }) {
 
             if (isHistory && meshRef.current.position.x >= -40 && !isFact) {
                 meshRef.current.position.x -= 0.5;
+                if (name.toLowerCase() === 'saturn') {
+                    saturnRef.current.position.x -= 0.5;
+                }
             } 
             else if (isFact && meshRef.current.position.x <= 40 && !isHistory) {
                 meshRef.current.position.x += 0.5;
+                if (name.toLowerCase() === 'saturn') {
+                    saturnRef.current.position.x += 0.5;
+                }
             } 
             else if (!isFact && !isHistory) {
                 if (meshRef.current.position.x < 0) {
                     meshRef.current.position.x += 0.5;
+                    if (name.toLowerCase() === 'saturn') {
+                        saturnRef.current.position.x += 0.5;
+                    }
                 } else if (meshRef.current.position.x > 0) {
                     meshRef.current.position.x -= 0.5;
+                    if (name.toLowerCase() === 'saturn') {
+                        saturnRef.current.position.x -= 0.5;
+                    }
                 } else {
                     meshRef.current.position.x = 0;
+                    if (name.toLowerCase() === 'saturn') {
+                        saturnRef.current.position.x = 0;
+                    }
                 }
             }
 

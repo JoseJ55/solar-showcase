@@ -184,6 +184,13 @@ function Canvas() {
         scene.add(saturnMesh);
         saturnMesh.position.set(30, 0, 0);
 
+        const saturnRingGeometry = new THREE.RingGeometry(2, 3, 32);
+        const saturnRingUV = new THREE.TextureLoader().load('UVMaps/saturn-rings-uv-map.jpg');
+        const saturnRingMaterial = new THREE.MeshStandardMaterial({ map: saturnRingUV });
+        const saturnRing = new THREE.Mesh(saturnRingGeometry, saturnRingMaterial);
+        scene.add(saturnRing);
+        saturnRing.position.set(30, 0, 0);
+
         const saturnOrbit = createOrbitCircle(30, 64, orbitColor);
         // saturnOrbit.name = 'saturn_orbit';
         scene.add(saturnOrbit);
@@ -337,6 +344,8 @@ function Canvas() {
             saturnMesh.rotation.y += -0.005;
             saturnMesh.position.x = 30*Math.cos(t * saturnSpeed);
             saturnMesh.position.y = 30*Math.sin(t * saturnSpeed);
+            saturnRing.position.x = 30*Math.cos(t * saturnSpeed);
+            saturnRing.position.y = 30*Math.sin(t * saturnSpeed);
 
             uranusMesh.rotation.x = -Math.PI / 2;
             uranusMesh.rotation.y += -0.005;
