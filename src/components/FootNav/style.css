@@ -4,7 +4,7 @@
     color: black;
     font-family: var(--font-family);
     align-self: flex-start;
-    margin: 0 10vh;
+    /* margin: 0 10vh; */
 }
 
 #footer-nav-list {
@@ -23,4 +23,21 @@
 
 #footer-nav-list a:hover {
     color: var(--main-text-color)
+}
+
+@media only screen and (max-width: 500px) {
+    #footer-nav {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #footer-nav h3 {
+        font-size: 1rem;
+    }
+
+    #footer-nav-list p {
+        font-size: 0.9rem;
+        margin: 0.7vh 0;
+    }
 }

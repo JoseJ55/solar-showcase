@@ -8,9 +8,11 @@ import FootNav from '../FootNav/FootNav';
 function Footer() {
   return (
     <div id="footer">
+      <div id='footer-container'>
         <FootContact />
         <FootLinks />
         <FootNav />
+      </div>
     </div>
   )
 }

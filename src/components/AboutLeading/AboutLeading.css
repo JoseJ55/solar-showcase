@@ -44,6 +44,30 @@
     animation: fade-in-right 3s forwards;
 }
 
+@media only screen and (max-width: 800px) {
+    #about-section-about {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #about-section-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #about-section-title-lines {
+        border-left: 1px solid var(--main-text-color);
+        border-bottom: 1px solid var(--main-text-color);
+        width: 120%;
+        height: 0;
+        margin-bottom: 5vh;
+        margin-left: 0;
+    }
+}
+
 @keyframes fade-in-left {
     0% { 
         transform: translateX(-100%); 

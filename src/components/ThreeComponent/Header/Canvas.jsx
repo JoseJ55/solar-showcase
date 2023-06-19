@@ -120,9 +120,9 @@ function Canvas() {
         <div 
             ref={mountRef} 
             id="canvas-container"
-            style={{width: '100%', minHeight: '100%'}}
+            style={{width: '100%', height: '100%', minHeight: '100vh'}}
             >
-            <canvas ref={canvasRef} id="header-canvas" style={{width: '100%', minHeight: '100%'}} />
+            <canvas ref={canvasRef} id="header-canvas" style={{width: '100%', height: '100%', minHeight: '100%'}} />
         </div>
     )
 }

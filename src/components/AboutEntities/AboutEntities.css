@@ -27,6 +27,35 @@
     animation: fade-in-left 3s forwards;
 }
 
+@media only screen and (max-width: 500px) {
+    #about-section-planet {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #about-section-planet-image {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #about-section-planet {
+        height: 25vh;
+    }
+
+    #about-section-planet-image {
+        width: 100%;
+        margin-right: 2vw;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #about-section-planet {
+        height: 25vh;
+    }
+}
+
 @keyframes fade-in-left {
     0% { 
         transform: translateX(-100%); 

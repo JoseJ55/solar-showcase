@@ -8,7 +8,9 @@ function Header() {
     <div id="header">
       <Canvas />
         <div id="header-title">
-            Explore Our System
+            <span>Explore</span>
+            <span>Our</span>
+            <span>System</span>
         </div>
     </div>
   )

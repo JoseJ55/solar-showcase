@@ -6,3 +6,34 @@
     background-color: var(--footer-color);
     padding: 10vh 0;
 }
+
+#footer-container {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1500px) {
+    #footer-container {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #footer-container {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #footer-container {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #footer-container {
+        width: 55%;
+    }
+}

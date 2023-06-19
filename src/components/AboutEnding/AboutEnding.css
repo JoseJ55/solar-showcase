@@ -26,6 +26,32 @@
     animation: fade-in-right 3s forwards;
 }
 
+@media only screen and (max-width: 500px) {
+    #about-section-other {
+        flex-direction: column-reverse;
+    }
+
+    #about-section-other-image {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #about-section-other {
+        height: 25vh;
+    }
+
+    #about-section-other-image {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #about-section-other {
+        height: 25vh;
+    }
+}
+
 @keyframes fade-in-left {
     0% { 
         transform: translateX(-100%); 

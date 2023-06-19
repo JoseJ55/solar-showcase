@@ -3,7 +3,7 @@
     color: black;
     font-family: var(--font-family);
     align-self: flex-start;
-    margin: 0 5vw;
+    /* margin: 0 5vw; */
 }
 
 #footer-contact h3 {
@@ -50,4 +50,44 @@
 
 #tiktok {
     font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 500px) {
+    #footer-contact {
+        margin-bottom: 15%;
+    }
+
+    #footer-contact h3 {
+        font-size: 0.8rem;
+    }
+
+    .item {
+        font-size: 0.7rem;
+    }
+
+    #footer-contact-follow {
+        font-size: 0.8rem;
+    }
+
+    #footer-contact-items p {
+        margin-right: 15%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #footer-contact h3 {
+        font-size: 1rem;
+    }
+
+    .item {
+        font-size: 0.9rem;
+    }
+
+    #footer-contact-follow {
+        font-size: 1rem;
+    }
+
+    #footer-contact-items p {
+        margin-right: 10%;
+    }
 }
