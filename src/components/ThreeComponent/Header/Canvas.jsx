@@ -113,14 +113,28 @@ function Canvas() {
             renderer.render(scene, camera);
             window.requestAnimationFrame(animate);
         }
+
+        const handleResize = () => {
+            const { clientWidth, clientHeight } = current;
+            camera.aspect = clientWidth / clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(clientWidth, clientHeight);
+        };
+
         animate();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, [])
 
     return (
         <div 
             ref={mountRef} 
             id="canvas-container"
-            style={{width: '100%', height: '100%', minHeight: '100vh'}}
+            style={{width: '100%', height: '100%', minHeight: '100vh', maxHeight: '100vh'}}
             >
             <canvas ref={canvasRef} id="header-canvas" style={{width: '100%', height: '100%', minHeight: '100%'}} />
         </div>

@@ -360,13 +360,27 @@ function Canvas() {
             renderer.render(scene, camera);
             window.requestAnimationFrame(animate);
         }
+
+        const handleResize = () => {
+            const { clientWidth, clientHeight } = current;
+            camera.aspect = clientWidth / clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(clientWidth, clientHeight);
+        };
+
         animate();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, [])
 
   return (
     <div 
         ref={mountRef} 
-        style={{width: '100%', minHeight: '100%', cursor: hovering ? 'pointer' : 'default'}}>
+        style={{width: '100%', minHeight: '100%', maxHeight: '100vh', cursor: hovering ? 'pointer' : 'default'}}>
         <canvas ref={canvasRef} style={{width: '100%', minHeight: '100%'}} />
     </div>
   )
