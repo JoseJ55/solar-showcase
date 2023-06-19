@@ -32,6 +32,13 @@
     visibility: visible;
 }
 
+@media only screen and (max-width: 500px) {
+    .celestialBody-history p {
+        width: 95%;
+        margin: 2vh 0;
+    }
+}
+
 @keyframes fade-in-right {
     0% { 
         transform: translateX(100%); 

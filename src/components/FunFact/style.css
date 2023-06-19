@@ -48,6 +48,12 @@
     font-size: 1rem;
 }
 
+@media only screen and (max-width: 500px) {
+    .funfact-info-body-fact {
+        width: 90%;
+    }
+}
+
 @keyframes fade-in-left {
     0% { 
         transform: translateX(-100%); 
