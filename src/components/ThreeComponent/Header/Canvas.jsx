@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 function Canvas() {
     const mountRef = useRef(null);
@@ -34,8 +34,8 @@ function Canvas() {
         renderer.setSize(current.clientWidth, current.clientHeight);
 
         // This is to move the camera around and will be remove later on.
-        const controls = new OrbitControls( camera, renderer.domElement );
-        controls.update();
+        // const controls = new OrbitControls( camera, renderer.domElement );
+        // controls.update();
 
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.02);
         ambientLight.castShadow = true;
@@ -149,7 +149,6 @@ function Canvas() {
                 (clientWidth > 1100 && clientWidth < 1500 && (windowWidth < 1100 || windowWidth > 1500)) ||
                 (clientWidth > 1500 && windowWidth < 1500)
             ) {
-                console.log(clientWidth);
                 setWindowWidth(clientWidth);
             }
             camera.aspect = clientWidth / clientHeight;

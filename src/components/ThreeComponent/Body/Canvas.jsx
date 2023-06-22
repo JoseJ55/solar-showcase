@@ -13,6 +13,8 @@ function Canvas ({ name }) {
 
     const { isFact, isHistory } = useContext(BodyContext);
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     useEffect(() => {
         isFactRef.current = isFact;
         isHistoryRef.current = isHistory;
@@ -98,33 +100,42 @@ function Canvas ({ name }) {
             const isFact = isFactRef.current;
             const isHistory = isHistoryRef.current;
 
-            if (isHistory && meshRef.current.position.x >= -40 && !isFact) {
-                meshRef.current.position.x -= 0.5;
-                if (name.toLowerCase() === 'saturn') {
-                    saturnRef.current.position.x -= 0.5;
-                }
-            } 
-            else if (isFact && meshRef.current.position.x <= 40 && !isHistory) {
-                meshRef.current.position.x += 0.5;
-                if (name.toLowerCase() === 'saturn') {
-                    saturnRef.current.position.x += 0.5;
-                }
-            } 
-            else if (!isFact && !isHistory) {
-                if (meshRef.current.position.x < 0) {
-                    meshRef.current.position.x += 0.5;
-                    if (name.toLowerCase() === 'saturn') {
-                        saturnRef.current.position.x += 0.5;
-                    }
-                } else if (meshRef.current.position.x > 0) {
+            let bound = 40;
+
+            if (windowWidth < 800 && windowWidth > 500) bound = 20;
+            else if (windowWidth < 1100 && windowWidth > 800) bound = 25;
+            else if (windowWidth < 1500 && windowWidth > 1100) bound = 30;
+            else bound = 40;
+
+            if (windowWidth > 500) {
+                if (isHistory && meshRef.current.position.x >= -bound && !isFact) {
                     meshRef.current.position.x -= 0.5;
                     if (name.toLowerCase() === 'saturn') {
                         saturnRef.current.position.x -= 0.5;
                     }
-                } else {
-                    meshRef.current.position.x = 0;
+                } 
+                else if (isFact && meshRef.current.position.x <= bound && !isHistory) {
+                    meshRef.current.position.x += 0.5;
                     if (name.toLowerCase() === 'saturn') {
-                        saturnRef.current.position.x = 0;
+                        saturnRef.current.position.x += 0.5;
+                    }
+                } 
+                else if (!isFact && !isHistory) {
+                    if (meshRef.current.position.x < 0) {
+                        meshRef.current.position.x += 0.5;
+                        if (name.toLowerCase() === 'saturn') {
+                            saturnRef.current.position.x += 0.5;
+                        }
+                    } else if (meshRef.current.position.x > 0) {
+                        meshRef.current.position.x -= 0.5;
+                        if (name.toLowerCase() === 'saturn') {
+                            saturnRef.current.position.x -= 0.5;
+                        }
+                    } else {
+                        meshRef.current.position.x = 0;
+                        if (name.toLowerCase() === 'saturn') {
+                            saturnRef.current.position.x = 0;
+                        }
                     }
                 }
             }
@@ -135,6 +146,15 @@ function Canvas ({ name }) {
 
         const handleResize = () => {
             const { clientWidth, clientHeight } = current;
+            if (
+                (clientWidth < 500 && windowWidth > 500) ||
+                (clientWidth > 500 && clientWidth < 800 && (windowWidth < 500 || windowWidth > 800)) ||
+                (clientWidth > 800 && clientWidth < 1100 && (windowWidth < 800 || windowWidth > 1100)) ||
+                (clientWidth > 1100 && clientWidth < 1500 && (windowWidth < 1100 || windowWidth > 1500)) ||
+                (clientWidth > 1500 && windowWidth < 1500)
+            ) {
+                setWindowWidth(clientWidth);
+            }
             camera.aspect = clientWidth / clientHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(clientWidth, clientHeight);
@@ -154,7 +174,7 @@ function Canvas ({ name }) {
     return (
         <div 
             ref={mountRef}
-            style={{ width: '100%', minHeight: '100%', maxHeight: '100vh' }}
+            style={{ width: '100%', minHeight: '100vh', maxHeight: '100vh' }}
             >
             <canvas ref={canvasRef} id="header-canvas" style={{width: '100%', minHeight: '100%'}} />
         </div>

@@ -10,6 +10,7 @@ function Canvas() {
 
     const [hovering, setHovering] = useState(false);
     const [lastItem, setLastItem] = useState(null);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     function rotateAboutPoint(obj, point, axis, theta, pointIsWorld){
         pointIsWorld = (pointIsWorld === undefined)? false : pointIsWorld;
@@ -44,9 +45,28 @@ function Canvas() {
             1,
             1000
         );
-        camera.position.x = 25;
-        camera.position.y = -81;
-        camera.position.z = 49;
+
+        if (windowWidth < 500) {
+            camera.position.x = 40;
+            camera.position.y = -81;
+            camera.position.z = 59;
+        } else if (windowWidth < 800) {
+            camera.position.x = 55;
+            camera.position.y = -141;
+            camera.position.z = 49;
+        } else if (windowWidth < 1100) {
+            camera.position.x = 45;
+            camera.position.y = -101;
+            camera.position.z = 49;
+        } else if (windowWidth < 1500) {
+            camera.position.x = 35;
+            camera.position.y = -81;
+            camera.position.z = 49;
+        } else {
+            camera.position.x = 25;
+            camera.position.y = -81;
+            camera.position.z = 49;
+        }
 
         camera.lookAt(0, 0, 0);
 
@@ -315,47 +335,105 @@ function Canvas() {
             sunMesh.rotation.x = -Math.PI / 2;
             sunMesh.rotation.y += -0.005;
 
-            mercuryMesh.rotation.x = -Math.PI / 2;
-            mercuryMesh.rotation.y += -0.005;
-            mercuryMesh.position.x = 5*Math.cos(t * mercurySpeed);
-            mercuryMesh.position.y = 5*Math.sin(t * mercurySpeed);
+            if (windowWidth < 500) {
+                mercuryMesh.rotation.x = -Math.PI / 2;
+                mercuryMesh.rotation.y += -0.005;
+                mercuryMesh.position.x = 5*Math.cos(-1.5 * mercurySpeed);
+                mercuryMesh.position.y = 5*Math.sin(-1.5 * mercurySpeed);
+            } else {
+                mercuryMesh.rotation.x = -Math.PI / 2;
+                mercuryMesh.rotation.y += -0.005;
+                mercuryMesh.position.x = 5*Math.cos(t * mercurySpeed);
+                mercuryMesh.position.y = 5*Math.sin(t * mercurySpeed);
+            }
 
-            venusMesh.rotation.x = -Math.PI / 2;
-            venusMesh.rotation.y += -0.005;
-            venusMesh.position.x = 10*Math.cos(t * venusSpeed);
-            venusMesh.position.y = 10*Math.sin(t * venusSpeed);
+            if (windowWidth < 500) {
+                venusMesh.rotation.x = -Math.PI / 2;
+                venusMesh.rotation.y += -0.005;
+                venusMesh.position.x = 10*Math.cos(1.2 * venusSpeed);
+                venusMesh.position.y = 10*Math.sin(1.2 * venusSpeed);
+            } else {
+                venusMesh.rotation.x = -Math.PI / 2;
+                venusMesh.rotation.y += -0.005;
+                venusMesh.position.x = 10*Math.cos(t * venusSpeed);
+                venusMesh.position.y = 10*Math.sin(t * venusSpeed);
+            }
 
-            earthMesh.rotation.x = -Math.PI / 2;
-            earthMesh.rotation.y += -0.005;
-            earthMesh.position.x = 15*Math.cos(t * earthSpeed);
-            earthMesh.position.y = 15*Math.sin(t * earthSpeed);
+            if(windowWidth < 500) {
+                earthMesh.rotation.x = -Math.PI / 2;
+                earthMesh.rotation.y += -0.005;
+                earthMesh.position.x = 15*Math.cos(-1.9 * earthSpeed);
+                earthMesh.position.y = 15*Math.sin(-1.9 * earthSpeed);
+            } else {
+                earthMesh.rotation.x = -Math.PI / 2;
+                earthMesh.rotation.y += -0.005;
+                earthMesh.position.x = 15*Math.cos(t * earthSpeed);
+                earthMesh.position.y = 15*Math.sin(t * earthSpeed);
+            }
 
-            marsMesh.rotation.x = -Math.PI / 2;
-            marsMesh.rotation.y += -0.005;
-            marsMesh.position.x = 20*Math.cos(t * marsSpeed);
-            marsMesh.position.y = 20*Math.sin(t * marsSpeed);
+            if(windowWidth < 500) {
+                marsMesh.rotation.x = -Math.PI / 2;
+                marsMesh.rotation.y += -0.005;
+                marsMesh.position.x = 20*Math.cos(2.5 * marsSpeed);
+                marsMesh.position.y = 20*Math.sin(2.5 * marsSpeed);
+            } else {
+                marsMesh.rotation.x = -Math.PI / 2;
+                marsMesh.rotation.y += -0.005;
+                marsMesh.position.x = 20*Math.cos(t * marsSpeed);
+                marsMesh.position.y = 20*Math.sin(t * marsSpeed);
+            }
 
-            jupiterMesh.rotation.x = -Math.PI / 2;
-            jupiterMesh.rotation.y += -0.005;
-            jupiterMesh.position.x = 25*Math.cos(t * jupiterSpeed);
-            jupiterMesh.position.y = 25*Math.sin(t * jupiterSpeed);
+            if(windowWidth < 500) {
+                jupiterMesh.rotation.x = -Math.PI / 2;
+                jupiterMesh.rotation.y += -0.005;
+                jupiterMesh.position.x = 25*Math.cos(-11.4 * jupiterSpeed);
+                jupiterMesh.position.y = 25*Math.sin(-11.4 * jupiterSpeed);
+            } else {
+                jupiterMesh.rotation.x = -Math.PI / 2;
+                jupiterMesh.rotation.y += -0.005;
+                jupiterMesh.position.x = 25*Math.cos(t * jupiterSpeed);
+                jupiterMesh.position.y = 25*Math.sin(t * jupiterSpeed);
+            }
 
-            saturnMesh.rotation.x = -Math.PI / 2;
-            saturnMesh.rotation.y += -0.005;
-            saturnMesh.position.x = 30*Math.cos(t * saturnSpeed);
-            saturnMesh.position.y = 30*Math.sin(t * saturnSpeed);
-            saturnRing.position.x = 30*Math.cos(t * saturnSpeed);
-            saturnRing.position.y = 30*Math.sin(t * saturnSpeed);
+            if(windowWidth < 500) {
+                saturnMesh.rotation.x = -Math.PI / 2;
+                saturnMesh.rotation.y += -0.005;
+                saturnMesh.position.x = 30*Math.cos(18.4 * saturnSpeed);
+                saturnMesh.position.y = 30*Math.sin(18.4 * saturnSpeed);
+                saturnRing.position.x = 30*Math.cos(18.4 * saturnSpeed);
+                saturnRing.position.y = 30*Math.sin(18.4 * saturnSpeed);
+            } else {
+                saturnMesh.rotation.x = -Math.PI / 2;
+                saturnMesh.rotation.y += -0.005;
+                saturnMesh.position.x = 30*Math.cos(t * saturnSpeed);
+                saturnMesh.position.y = 30*Math.sin(t * saturnSpeed);
+                saturnRing.position.x = 30*Math.cos(t * saturnSpeed);
+                saturnRing.position.y = 30*Math.sin(t * saturnSpeed);
+            }
 
-            uranusMesh.rotation.x = -Math.PI / 2;
-            uranusMesh.rotation.y += -0.005;
-            uranusMesh.position.x = 35*Math.cos(t * uranusSpeed);
-            uranusMesh.position.y = 35*Math.sin(t * uranusSpeed);
+            if (windowWidth < 500) {
+                uranusMesh.rotation.x = -Math.PI / 2;
+                uranusMesh.rotation.y += -0.005;
+                uranusMesh.position.x = 35*Math.cos(-80 * uranusSpeed);
+                uranusMesh.position.y = 35*Math.sin(-80 * uranusSpeed);
+            } else {
+                uranusMesh.rotation.x = -Math.PI / 2;
+                uranusMesh.rotation.y += -0.005;
+                uranusMesh.position.x = 35*Math.cos(t * uranusSpeed);
+                uranusMesh.position.y = 35*Math.sin(t * uranusSpeed);
+            }
 
-            neptuneMesh.rotation.x = -Math.PI / 2;
-            neptuneMesh.rotation.y += -0.005;
-            neptuneMesh.position.x = 40*Math.cos(t * neptuneSpeed);
-            neptuneMesh.position.y = 40*Math.sin(t * neptuneSpeed);
+            if (windowWidth < 500) {
+                neptuneMesh.rotation.x = -Math.PI / 2;
+                neptuneMesh.rotation.y += -0.005;
+                neptuneMesh.position.x = 40*Math.cos(100 * neptuneSpeed);
+                neptuneMesh.position.y = 40*Math.sin(100 * neptuneSpeed);
+            } else {
+                neptuneMesh.rotation.x = -Math.PI / 2;
+                neptuneMesh.rotation.y += -0.005;
+                neptuneMesh.position.x = 40*Math.cos(t * neptuneSpeed);
+                neptuneMesh.position.y = 40*Math.sin(t * neptuneSpeed);
+            }
 
             renderer.render(scene, camera);
             window.requestAnimationFrame(animate);
@@ -363,6 +441,15 @@ function Canvas() {
 
         const handleResize = () => {
             const { clientWidth, clientHeight } = current;
+            if (
+                (clientWidth < 500 && windowWidth > 500) ||
+                (clientWidth > 500 && clientWidth < 800 && (windowWidth < 500 || windowWidth > 800)) ||
+                (clientWidth > 800 && clientWidth < 1100 && (windowWidth < 800 || windowWidth > 1100)) ||
+                (clientWidth > 1100 && clientWidth < 1500 && (windowWidth < 1100 || windowWidth > 1500)) ||
+                (clientWidth > 1500 && windowWidth < 1500)
+            ) {
+                setWindowWidth(clientWidth);
+            }
             camera.aspect = clientWidth / clientHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(clientWidth, clientHeight);
@@ -375,7 +462,7 @@ function Canvas() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [])
+    }, [windowWidth])
 
   return (
     <div 
