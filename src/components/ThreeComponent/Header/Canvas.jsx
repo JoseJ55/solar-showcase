@@ -1,10 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from 'three';
-// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 function Canvas() {
     const mountRef = useRef(null);
     const canvasRef = useRef(null);
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         const { current } = mountRef;
@@ -32,15 +34,19 @@ function Canvas() {
         renderer.setSize(current.clientWidth, current.clientHeight);
 
         // This is to move the camera around and will be remove later on.
-        // const controls = new OrbitControls( camera, renderer.domElement );
-        // controls.update();
+        const controls = new OrbitControls( camera, renderer.domElement );
+        controls.update();
 
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.02);
         ambientLight.castShadow = true;
         scene.add(ambientLight);
         
         const sunLight = new THREE.PointLight(0xffffff, 1.5, 0);
-        sunLight.position.set(-70, 40, 0);
+        if (windowWidth < 500) sunLight.position.set(-25, 50, -5);
+        else if (windowWidth < 800) sunLight.position.set(-35, 45, 0);
+        else if (windowWidth < 1100) sunLight.position.set(-30, 45, 5);
+        else if (windowWidth < 1500) sunLight.position.set(-30, 35, 10);
+        else sunLight.position.set(-70, 40, 0);
         sunLight.intensity = 4;
         sunLight.castShadow = true;
         scene.add(sunLight);
@@ -55,7 +61,11 @@ function Canvas() {
         spotLight.position.set(32, -20, 90);
         spotLight.castShadow = false;
         spotLight.power = 6;
-        spotLight.target.position.set(-70, 40, 0)
+        if (windowWidth < 500) spotLight.target.position.set(-25, 50, -5);
+        else if (windowWidth < 800) spotLight.target.position.set(-35, 45, 0);
+        else if (windowWidth < 1100) spotLight.target.position.set(-30, 45, 5);
+        else if (windowWidth < 1500) spotLight.target.position.set(-30, 35, 10);
+        else spotLight.target.position.set(-70, 40, 0);
         spotLight.angle = Math.PI/24;
         scene.add(spotLight);
         scene.add(spotLight.target);
@@ -73,7 +83,11 @@ function Canvas() {
         })
         const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
         scene.add(sunMesh);
-        sunMesh.position.set(-70, 40, 0)
+        if (windowWidth < 500) sunMesh.position.set(-25, 50, -5);
+        else if (windowWidth < 800) sunMesh.position.set(-35, 45, 0);
+        else if (windowWidth < 1100) sunMesh.position.set(-30, 45, 5);
+        else if (windowWidth < 1500) sunMesh.position.set(-30, 35, 10);
+        else sunMesh.position.set(-70, 40, 0);
 
         // This is for the earth model.
         const earthGeometry = new THREE.SphereGeometry(5, 18, 12);
@@ -83,7 +97,11 @@ function Canvas() {
         });
         const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
         scene.add(earthMesh);
-        earthMesh.position.set(-20, 25, -70);
+        if (windowWidth < 500) earthMesh.position.set(10, 25, -70);
+        else if (windowWidth < 800) earthMesh.position.set(5, 25, -80);
+        else if (windowWidth < 1100) earthMesh.position.set(20, 25, -80);
+        else if (windowWidth < 1500) earthMesh.position.set(30, 30, -95);
+        else earthMesh.position.set(-20, 25, -70);
 
         // This is for mercury model.
         const mercuryGeometry = new THREE.SphereGeometry(3.5, 13, 16);
@@ -93,7 +111,11 @@ function Canvas() {
         });
         const mercuryMesh = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
         scene.add(mercuryMesh);
-        mercuryMesh.position.set(-25, -5, 60);
+        if (windowWidth < 500) mercuryMesh.position.set(-30, -30, -30);
+        else if (windowWidth < 800) mercuryMesh.position.set(-30, -20, -20);
+        else if (windowWidth < 1100) mercuryMesh.position.set(-25, -15, 10);
+        else if (windowWidth < 1500) mercuryMesh.position.set(-40, -25, -45);
+        else mercuryMesh.position.set(-25, -5, 60);
 
         // This is for mars model.
         const marsGeometry = new THREE.SphereGeometry(4, 13, 24);
@@ -103,7 +125,11 @@ function Canvas() {
         });
         const marsMesh = new THREE.Mesh(marsGeometry, marsMaterial);
         scene.add(marsMesh);
-        marsMesh.position.set(6, -3, 93);
+        if (windowWidth < 500) marsMesh.position.set(2, -5, 93);
+        else if (windowWidth < 800) marsMesh.position.set(2, -6, 93);
+        else if (windowWidth < 1100) marsMesh.position.set(4, -6, 93);
+        else if (windowWidth < 1500) marsMesh.position.set(2, -5, 90);
+        else marsMesh.position.set(6, -3, 93);
 
         const animate = () => {
             sunMesh.rotation.y += 0.005;
@@ -116,6 +142,16 @@ function Canvas() {
 
         const handleResize = () => {
             const { clientWidth, clientHeight } = current;
+            if (
+                (clientWidth < 500 && windowWidth > 500) ||
+                (clientWidth > 500 && clientWidth < 800 && (windowWidth < 500 || windowWidth > 800)) ||
+                (clientWidth > 800 && clientWidth < 1100 && (windowWidth < 800 || windowWidth > 1100)) ||
+                (clientWidth > 1100 && clientWidth < 1500 && (windowWidth < 1100 || windowWidth > 1500)) ||
+                (clientWidth > 1500 && windowWidth < 1500)
+            ) {
+                console.log(clientWidth);
+                setWindowWidth(clientWidth);
+            }
             camera.aspect = clientWidth / clientHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(clientWidth, clientHeight);
@@ -128,7 +164,7 @@ function Canvas() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [])
+    }, [windowWidth])
 
     return (
         <div 
